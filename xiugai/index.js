@@ -62,7 +62,7 @@ app.post('/register',function(req,res){
     // 封装函数将用户信息写入本地
     function writeFile(){
         // 判断用户是否已经注册过
-        var fileName = 'users/'+req.body.petname + '.txt';
+        var fileName = 'users/'+req.body.account + '.txt';
         fs.exists(fileName,function(exist){
             if(exist){
                 // 用户已经被注册过了
@@ -91,7 +91,7 @@ app.post('/register',function(req,res){
 /*******************2 登录*********************/
 app.post('/login',function(req,res){
     // 根据用户名 获取文件名称，如果文件存在就去判断密码是否一致
-    var fileName = 'users/'+ req.body.petname + '.txt';
+    var fileName = 'users/'+ req.body.account + '.txt';
     fs.exists(fileName,function(exist){
         if(exist){
             // 文件存在
@@ -110,7 +110,7 @@ app.post('/login',function(req,res){
                         // 定义一个缓存有效期,以当前日期为参照
                         var expires = new Date();
                         expires.setMonth(expires.getMonth()+1);
-                        res.cookie('petname',req.body.petname,{expires})
+                        res.cookie('petname',req.body.account,{expires})
                         // 2 数据缓存完后 做登录成功提示
                         res.status(200).json({
                             code:"1",
@@ -137,7 +137,7 @@ app.post('/login',function(req,res){
 
 
 /*******************3 提问*********************/
-app.post('/user/ask',function(req,res){
+app.post('/quiz',function(req,res){
     
 	// console.log(res.cookie('petname'));
 	console.log(req.cookies);

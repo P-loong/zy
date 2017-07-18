@@ -45,6 +45,12 @@
 			.jia{
 				cursor: pointer;
 			}
+			select{
+				width: 97%;
+				padding: 8px;
+				margin: 10px;
+				border-radius: 5px;
+			}
 		</style>
 	</head>
 	<body>
@@ -61,9 +67,9 @@
 		</div>
 		<form action="/register" method="post">
 			<div class="Account headers">
-				<input type="text" name="account" id="" value="" placeholder="请填写昵称"/>
-				<input type="text" name="pwd" id="" value="" placeholder="请填写密码"/>
-				<input type="text" name="tpwd" id="" value="" placeholder="请再次填写密码"/>
+				<input type="text" name="account" required pattern="^[a-zA-Z0-9\u4e00-\u9fa5]{2,16}$" placeholder="请填写昵称" />
+				<input type="password" name="password" required pattern="^.{6,16}" placeholder="请填写密码"/>
+				<input type="password" required pattern="^.{6,16}" placeholder="请再次填写密码" />
 			</div>			
 			<div class="radios">
 				<input type="radio" name="sex" id="" value="" />
@@ -72,8 +78,12 @@
 				<label for="">女士</label>
 			</div>
 			<div class="Account footer">
-				<input type="text" id="" value="" placeholder="请填写邮箱"/>
-				<input type="tel" id="" value="" placeholder="Android"/>
+				<input type="email" id="" value="" name="email" required pattern="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$" placeholder="请填写邮箱"/>
+				<select name="course" class="form-control">
+					<option value="HTML5" selected>HTML5</option>
+					<option value="iOS" selected>iOS</option>
+					<option value="Android" selected>Android</option>
+				</select>
 				<input type="submit" value="注册"/>
 			</div>		
 		</form>
