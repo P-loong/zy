@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<script src="js/jQuery/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
 		<title>首页</title>
 		<style type="text/css">
 			.header{
@@ -19,10 +20,17 @@
 				position: absolute;
 				top: -15px;
 			}
-			a{
+			.Btn1 a{
 				margin: 5px;
 				color: white;
+			}
+			a{
 				text-decoration: none;
+			}
+			img{
+				width: 64px;
+				height: 64px;
+				border-radius: 50%;
 			}
 			.leftF img{
 				float: left;
@@ -33,7 +41,29 @@
 				margin: 5px;
 			}
 			.Btn1{
-				margin: 0 5px;
+				margin: 0 25px;
+			}
+			ul{
+				margin: 0;
+				list-style: none;
+				width: 65px;
+				padding: 5px;	
+				box-shadow: 0 0 5px black;	
+				position: absolute;	
+				top: 80px;
+				right: 0;	
+				display: none;
+			}
+			ul li{
+				margin: 10px;
+			}
+			ul li a{
+				color: black;
+				cursor: pointer;				
+			}
+			.divider{
+				border-bottom: 1px solid gainsboro;
+				width: 65px;
 			}
 		</style>
 	</head>
@@ -47,21 +77,28 @@
 				<span id="btn2"><a href="#">登录</a></span>
 			</div>
 		</div>		
-		<section class="leftF">
-			<img src="images/user.png"/>
+		<!--<section class="leftF">
+			<img src="uploads/user.png"/>
 			<h3>7777</h3>
 			<p>今天学了什么东西？</p>
 			<strong>2017-07-18 20:20 <span>127.0.0.1</span></strong>
 		</section>
 		<div class="bottom">
 			<section class="rightF">
-				<img src="images/user.png"/>
+				<a href="#"><img src="images/user.png"/></a>
 				<h3>7777</h3>
 				<p>今天学了什么东西？</p>
 				<strong>2017-07-18 20:20 <span>127.0.0.1</span></strong>
 			</section>
 			<hr />
-		</div>		
+		</div>	-->
+		<div class="questions"></div>
+		<ul style="min-width: 90px;">
+			<li><a href="My.html" class="text-right">个人资料</a></li>
+            <li class="divider"></li>  
+			<li id="logout"><a class="text-right">退出登陆</a></li>
+		</ul>
 	</body>
 </html>
+<script src="js/jquery.cookie.js"></script>
 <script src="js/index.js" type="text/javascript" charset="utf-8"></script>

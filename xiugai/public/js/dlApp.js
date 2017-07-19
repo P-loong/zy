@@ -12,7 +12,7 @@ $('form').submit(function(event){
 	var data = $(this).serialize();//以拼接的形式获取全部form的数据
 	$.post('/login',data,function(resData){
 		alert(resData.message);
-		if (resData.status == 3) {			
+		if (resData.message == '登录成功！') {			
 			location.href = 'index.html'
 		}
 	})

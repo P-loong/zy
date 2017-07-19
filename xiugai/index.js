@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
 
 
-/*******************1 注册*********************/
+//-----------------------------------------注册
 app.post('/register',function(req,res){
    
     console.log('已进入注册请求。。。')
@@ -88,7 +88,7 @@ app.post('/register',function(req,res){
 });
 
 
-/*******************2 登录*********************/
+//-----------------------------------------登录
 app.post('/login',function(req,res){
     // 根据用户名 获取文件名称，如果文件存在就去判断密码是否一致
     var fileName = 'users/'+ req.body.account + '.txt';
@@ -136,7 +136,7 @@ app.post('/login',function(req,res){
 
 
 
-/*******************3 提问*********************/
+//-----------------------------------------提问
 app.post('/quiz',function(req,res){
     
 	// console.log(res.cookie('petname'));
@@ -189,7 +189,7 @@ app.post('/quiz',function(req,res){
             }else{
                 res.status(200).json({
                         code:"1",
-                        message:"大功告成！！"  
+                        message:"提了个好问题"  
                     });
             }
         }) 
@@ -199,7 +199,7 @@ app.post('/quiz',function(req,res){
 
 
 
-/*******************首页数据*********************/
+//-----------------------------------------首页
 app.get('/question/all',function(req,res){
     // 读取所有的questions文件夹里面数据
     fs.readdir('questions',function(err,files){
@@ -233,8 +233,8 @@ app.get('/question/all',function(req,res){
 
 
 
-/*******************回答问题*********************/
-app.post('/user/answer',function(req,res){
+//-----------------------------------------回答
+app.post('/answer',function(req,res){
 	// 判断登录的状态
 	 
 	if(!req.cookies.petname){
@@ -279,7 +279,7 @@ app.post('/user/answer',function(req,res){
 
 
 /*******************上传头像*********************/
-app.post('/user/photo',upload.single('photo'),function(req,res){
+app.post('/photo',upload.single('photo'),function(req,res){
 
     res.status(200).json({
         code:"1",
@@ -289,7 +289,7 @@ app.post('/user/photo',upload.single('photo'),function(req,res){
 
 
 /*******************退出登录*********************/
-app.get('/user/logout',function(req,res){
+app.get('/logout',function(req,res){
     // 清除缓存的昵称
     res.clearCookie('petname')
     res.status(200).json({
